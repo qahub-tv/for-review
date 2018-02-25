@@ -1,5 +1,6 @@
 package judge;
 
 public interface JudgeTargetContains {
-    public boolean judgeContainsSpecificWord(Object target);
+
+    public boolean hasSpecificWord(Object value);
 }

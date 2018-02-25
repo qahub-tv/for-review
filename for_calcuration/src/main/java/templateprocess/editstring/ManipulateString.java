@@ -2,7 +2,7 @@ package templateprocess.editstring;
 
 public interface ManipulateString {
 
-    public String extractTargetString(String targetOriginalString);
+    public String extractString(String value);
 
-    public String manipulaleTargetString(String extractedString);
+    public String manipulateString(String value);
 }

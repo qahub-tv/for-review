@@ -1,31 +1,31 @@
 package templateprocess.editstring;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class ExtractPriceValueFromTSVData implements ManipulateString {
 
     private final int INDEX_OF_PRICE_PLACE = 4;
     
     private final String TAB = "\t";
 
-    private final String OTHER_THAN_NUMBER = "[^0-9]";
+    private final String REGEXP_NON_DIGIT = "[^0-9]";
 
-    private final String EMPTY_STRING = "";
-   
     @Override
-    public String extractTargetString(String targetOriginalString) {
-        String[] dividedTarget = divideWithTab(targetOriginalString);
-        return dividedTarget[INDEX_OF_PRICE_PLACE];
+    public String extractString(String value) {
+        String[] dividedValue = divideWithTab(value);
+        return dividedValue[INDEX_OF_PRICE_PLACE];
     }
 
     @Override
-    public String manipulaleTargetString(String extractedString) {
-        return replaceToEmptyStringWithoutNumber(extractedString);
+    public String manipulateString(String value) {
+        return replaceFromNonDiditToEmpty(value);
     }
 
-    private String[] divideWithTab(String targetOriginalString) {
-        return targetOriginalString.split(TAB);
+    private String[] divideWithTab(String value) {
+        return value.split(TAB);
     }
 
-    private String replaceToEmptyStringWithoutNumber(String extractedString) {
-        return extractedString.replaceAll(OTHER_THAN_NUMBER, EMPTY_STRING);
+    private String replaceFromNonDiditToEmpty(String value) {
+        return value.replaceAll(REGEXP_NON_DIGIT, StringUtils.EMPTY);
     }
 }

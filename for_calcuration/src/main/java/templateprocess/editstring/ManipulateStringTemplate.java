@@ -1,5 +1,6 @@
 package templateprocess.editstring;
 
+import org.apache.commons.lang3.StringUtils;
 import templateprocess.TemplateProcess;
 
 public class ManipulateStringTemplate implements TemplateProcess {
@@ -13,13 +14,13 @@ public class ManipulateStringTemplate implements TemplateProcess {
     }
 
     @Override
-    public Object executeTemplate(Object... targetOriginalString) {
+    public Object executeTemplate(Object... value) {
 
-        if (targetOriginalString[INDEX_OF_PRICE_DATA] instanceof String) {
-            String targetString = manipulateString.extractTargetString(targetOriginalString[INDEX_OF_PRICE_DATA].toString());
-            return manipulateString.manipulaleTargetString(targetString);
+        if (value[INDEX_OF_PRICE_DATA] instanceof String) {
+            String extractedString = manipulateString.extractString(value[INDEX_OF_PRICE_DATA].toString());
+            return manipulateString.manipulateString(extractedString);
         }
 
-        return "";
+        return StringUtils.EMPTY;
     }
 }
