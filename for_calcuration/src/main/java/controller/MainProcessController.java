@@ -13,7 +13,7 @@ import templateprocess.editstring.ManipulateStringTemplate;
 
 public class MainProcessController {
 
-    public void start() throws IOException {
+    public void execute() throws IOException {
 
         Iterator fileRowData = new FileRowDataAggregate("../resources/static/for_calcuration_2018_03.txt").iterator();
 

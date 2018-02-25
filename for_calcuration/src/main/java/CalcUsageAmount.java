@@ -8,7 +8,7 @@ public class CalcUsageAmount {
         // service start
         try {
             MainProcessController mainProcess = new MainProcessController();
-            mainProcess.start();
+            mainProcess.execute();
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ファイルが存在しません");
