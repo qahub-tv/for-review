@@ -11,22 +11,24 @@ import templateprocess.editstring.ExtractPriceValueFromTSVData;
 import templateprocess.editstring.ManipulateString;
 import templateprocess.editstring.ManipulateStringTemplate;
 
-public class MainProcessController{
+public class MainProcessController {
 
-    public void start()throws IOException{
-        
-        Iterator fileRowData = 
-            new FileRowDataAggregate("../resources/static/for_calcuration_2018_03.txt").iterator();
-        
+    public void start() throws IOException {
+
+        Iterator fileRowData = new FileRowDataAggregate("../resources/static/for_calcuration_2018_03.txt").iterator();
+
         TemplateProcess templateProcess = new ManipulateStringTemplate(new ExtractPriceValueFromTSVData());
-            
+
         JudgeTargetContains containsYenWithComma = new JudgeContainsPrice();
+
         int totalPrice = 0;
-        while(fileRowData.hasNext()){
-            if (!containsYenWithComma.judge(fileRowData.next())){
+        while (fileRowData.hasNext()) {
+            if (!containsYenWithComma.judge(fileRowData.next())) {
                 continue;
             }
-            totalPrice += Integer.parseInt(templateProcess.executeTemplate(fileRowData.current().toString()).toString());
+
+            totalPrice += Integer
+                    .parseInt(templateProcess.executeTemplate(fileRowData.current().toString()).toString());
         }
 
         System.out.println(totalPrice);

@@ -1,2 +1,2 @@
 javac -classpath ../ ../controller/MainProcessController.java
-javac ../CalcUsageAmount.java
+javac -classpath ../ ../CalcUsageAmount.java

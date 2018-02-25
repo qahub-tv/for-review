@@ -1,6 +1,6 @@
 package templateprocess.editstring;
 
-public interface ManipulateString{
+public interface ManipulateString {
 
     public String extractTargetString(String targetOriginalString);
 
