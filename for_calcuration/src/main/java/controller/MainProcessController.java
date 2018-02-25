@@ -23,7 +23,7 @@ public class MainProcessController {
 
         int totalPrice = 0;
         while (fileRowData.hasNext()) {
-            if (!containsYenWithComma.judge(fileRowData.next())) {
+            if (!containsYenWithComma.judgeContainsSpecificWord(fileRowData.next())) {
                 continue;
             }
 
