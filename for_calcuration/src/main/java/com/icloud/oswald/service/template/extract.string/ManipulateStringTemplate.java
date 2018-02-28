@@ -1,4 +1,4 @@
-package templateprocess.editstring;
+package main.java.com.icloud.oswald.template.extract.string;
 
 import org.apache.commons.lang3.StringUtils;
 import templateprocess.TemplateProcess;

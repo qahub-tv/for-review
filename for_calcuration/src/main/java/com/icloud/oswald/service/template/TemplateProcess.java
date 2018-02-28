@@ -1,4 +1,4 @@
-package templateprocess;
+package main.java.com.icloud.oswald.template;
 
 public interface TemplateProcess {
 

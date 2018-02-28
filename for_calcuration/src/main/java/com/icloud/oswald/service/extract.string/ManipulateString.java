@@ -1,4 +1,4 @@
-package templateprocess.editstring;
+package main.java.com.icloud.oswald.service.extract.string;
 
 public interface ManipulateString {
 

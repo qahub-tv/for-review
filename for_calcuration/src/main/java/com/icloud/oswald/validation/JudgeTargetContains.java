@@ -1,4 +1,4 @@
-package judge;
+package main.java.com.icloud.oswald.validation;
 
 public interface JudgeTargetContains {
 

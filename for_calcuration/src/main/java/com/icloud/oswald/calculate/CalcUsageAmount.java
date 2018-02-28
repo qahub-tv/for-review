@@ -1,5 +1,5 @@
+package main.java.com.icloud.oswald.calculate;
 import java.io.IOException;
-
 import controller.MainProcessController;
 
 public class CalcUsageAmount {

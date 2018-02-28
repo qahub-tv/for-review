@@ -1,4 +1,4 @@
-package filedata;
+package main.java.com.icloud.oswald.model.iterator.row.data;
 
 public class FileRowDataIterator implements Iterator {
 

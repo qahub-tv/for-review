@@ -1,4 +1,4 @@
-package filedata;
+package main.jama.com.icloud.oswald.model.iterator;
 
 public interface Iterator {
 

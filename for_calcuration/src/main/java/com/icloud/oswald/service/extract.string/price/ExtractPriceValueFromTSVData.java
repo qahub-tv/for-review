@@ -1,4 +1,4 @@
-package templateprocess.editstring;
+package main.java.com.icloud.oswald.service.extract.string.price;
 
 import org.apache.commons.lang3.StringUtils;
 
