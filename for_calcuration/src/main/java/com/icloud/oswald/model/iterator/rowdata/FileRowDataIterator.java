@@ -1,4 +1,7 @@
-package main.java.com.icloud.oswald.model.iterator.row.data;
+package main.java.com.icloud.oswald.model.iterator.rowdata;
+
+import main.java.com.icloud.oswald.model.iterator.Iterator;
+import main.java.com.icloud.oswald.model.aggregator.rowdata.FileRowDataAggregate;
 
 public class FileRowDataIterator implements Iterator {
 

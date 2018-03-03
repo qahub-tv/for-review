@@ -1,5 +1,6 @@
-package main.java.com.icloud.oswald.service.extract.string.price;
+package main.java.com.icloud.oswald.service.extract.string;
 
+import main.java.com.icloud.oswald.service.extract.ManipulateString;
 import org.apache.commons.lang3.StringUtils;
 
 public class ExtractPriceValueFromTSVData implements ManipulateString {

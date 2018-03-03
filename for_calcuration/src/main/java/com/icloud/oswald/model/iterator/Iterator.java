@@ -1,4 +1,4 @@
-package main.jama.com.icloud.oswald.model.iterator;
+package main.java.com.icloud.oswald.model.iterator;
 
 public interface Iterator {
 

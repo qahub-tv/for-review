@@ -1,4 +1,4 @@
-package main.java.com.icloud.oswald.service.extract.string;
+package main.java.com.icloud.oswald.service.extract;
 
 public interface ManipulateString {
 

@@ -1,6 +1,6 @@
 package main.java.com.icloud.oswald.validation;
 
-import judge.JudgeTargetContains;
+import main.java.com.icloud.oswald.validation.JudgeTargetContains;
 
 public class JudgeContainsPrice implements JudgeTargetContains {
 

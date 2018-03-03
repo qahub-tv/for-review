@@ -1,7 +1,8 @@
-package main.java.com.icloud.oswald.template.extract.string;
+package main.java.com.icloud.oswald.service.template.extract.string;
 
 import org.apache.commons.lang3.StringUtils;
-import templateprocess.TemplateProcess;
+import main.java.com.icloud.oswald.service.extract.ManipulateString;
+import main.java.com.icloud.oswald.service.template.TemplateProcess;
 
 public class ManipulateStringTemplate implements TemplateProcess {
 

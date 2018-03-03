@@ -1,11 +1,13 @@
-package main.java.com.icloud.oswald.model.aggregator.row.data;
+package main.java.com.icloud.oswald.model.aggregator.rowdata;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.List;
 import java.io.IOException;
-import filedata.FileRowDataIterator;
+import main.java.com.icloud.oswald.model.iterator.Iterator;
+import main.java.com.icloud.oswald.model.aggregator.Aggregate;
+import main.java.com.icloud.oswald.model.iterator.rowdata.FileRowDataIterator;
 
 public class FileRowDataAggregate implements Aggregate {
 
