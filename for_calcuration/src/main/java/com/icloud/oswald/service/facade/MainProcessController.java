@@ -13,24 +13,36 @@ import main.java.com.icloud.oswald.service.extract.string.ExtractPriceValueFromT
 
 public class MainProcessController {
 
-    public void execute() throws IOException {
+    public void execute() {
 
-        Iterator fileRowData = new FileRowDataAggregate("../resources/static/for_calcuration_2018_03.txt").iterator();
+        try {
 
-        TemplateProcess templateProcess = new ManipulateStringTemplate(new ExtractPriceValueFromTSVData());
+            Iterator fileRowData = new FileRowDataAggregate("../resources/static/for_calcuration_2018_03.txt").iterator();
 
-        JudgeTargetContains containsYenWithComma = new JudgeContainsPrice();
+            TemplateProcess templateProcess = new ManipulateStringTemplate(new ExtractPriceValueFromTSVData());
 
-        int totalPrice = 0;
-        while (fileRowData.hasNext()) {
-            if (!containsYenWithComma.hasSpecificWord(fileRowData.next())) {
-                continue;
+            JudgeTargetContains containsYenWithComma = new JudgeContainsPrice();
+
+            int totalPrice = 0;
+            while (fileRowData.hasNext()) {
+                if (!containsYenWithComma.hasSpecificWord(fileRowData.next())) {
+                    continue;
+                }
+
+                totalPrice += Integer
+                        .parseInt(templateProcess.executeTemplate(fileRowData.current().toString()).toString());
             }
 
-            totalPrice += Integer
-                    .parseInt(templateProcess.executeTemplate(fileRowData.current().toString()).toString());
-        }
+            System.out.println(totalPrice);
 
-        System.out.println(totalPrice);
+        } catch(IOException e) {
+
+            e.printStackTrace();
+            System.err.println("ファイルが存在しません");
+
+        } catch(Exception e) {
+            
+            e.printStackTrace();
+        }
     }
 }
