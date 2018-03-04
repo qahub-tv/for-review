@@ -30,7 +30,7 @@ public class MainProcessController {
                 }
 
                 totalPrice += Integer
-                        .parseInt(templateProcess.executeTemplate(fileRowData.current().toString()).toString());
+                        .parseInt(templateProcess.execute(fileRowData.current().toString()).toString());
             }
 
             System.out.println(totalPrice);

@@ -15,7 +15,7 @@ public class ExtractStringTemplate implements TemplateProcess {
     }
 
     @Override
-    public Object executeTemplate(Object... value) {
+    public Object execute(Object... value) {
 
         if (value[INDEX_OF_PRICE_DATA] instanceof String) {
             String extractedString = manipulateString.extract(value[INDEX_OF_PRICE_DATA].toString());
