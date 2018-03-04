@@ -1,16 +1,16 @@
 package main.java.com.icloud.oswald.service.template.extract.string;
 
 import org.apache.commons.lang3.StringUtils;
-import main.java.com.icloud.oswald.service.extract.ManipulateString;
+import main.java.com.icloud.oswald.service.extract.ExtractString;
 import main.java.com.icloud.oswald.service.template.TemplateProcess;
 
-public class ManipulateStringTemplate implements TemplateProcess {
+public class ExtractStringTemplate implements TemplateProcess {
 
-    private final ManipulateString manipulateString;
+    private final ExtractString manipulateString;
 
     private final int INDEX_OF_PRICE_DATA = 0;
 
-    public ManipulateStringTemplate(ManipulateString manipulateString) {
+    public ExtractStringTemplate(ExtractString manipulateString) {
         this.manipulateString = manipulateString;
     }
 
@@ -18,7 +18,7 @@ public class ManipulateStringTemplate implements TemplateProcess {
     public Object executeTemplate(Object... value) {
 
         if (value[INDEX_OF_PRICE_DATA] instanceof String) {
-            String extractedString = manipulateString.extractString(value[INDEX_OF_PRICE_DATA].toString());
+            String extractedString = manipulateString.extract(value[INDEX_OF_PRICE_DATA].toString());
             return manipulateString.manipulateString(extractedString);
         }
 

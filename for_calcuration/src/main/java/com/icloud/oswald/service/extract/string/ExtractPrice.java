@@ -1,9 +1,9 @@
 package main.java.com.icloud.oswald.service.extract.string;
 
-import main.java.com.icloud.oswald.service.extract.ManipulateString;
+import main.java.com.icloud.oswald.service.extract.ExtractString;
 import org.apache.commons.lang3.StringUtils;
 
-public class ExtractPriceValueFromTSVData implements ManipulateString {
+public class ExtractPrice implements ExtractString {
 
     private final int INDEX_OF_PRICE = 4;
     
@@ -12,7 +12,7 @@ public class ExtractPriceValueFromTSVData implements ManipulateString {
     private final String REGEXP_NON_DIGIT = "[^0-9]";
 
     @Override
-    public String extractString(String value) {
+    public String extract(String value) {
         String[] dividedValue = value.split(TAB);
         return dividedValue[INDEX_OF_PRICE];
     }

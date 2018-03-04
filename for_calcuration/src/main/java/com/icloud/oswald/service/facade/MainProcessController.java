@@ -4,12 +4,12 @@ import main.java.com.icloud.oswald.model.iterator.Iterator;
 import main.java.com.icloud.oswald.model.aggregator.rowdata.FileRowDataAggregate;
 
 import java.io.IOException;
-import main.java.com.icloud.oswald.validation.JudgeContainsPrice;
-import main.java.com.icloud.oswald.validation.JudgeTargetContains;
+import main.java.com.icloud.oswald.validation.RowDataValidation;
+import main.java.com.icloud.oswald.validation.PriceValidation;
 import main.java.com.icloud.oswald.service.template.TemplateProcess;
-import main.java.com.icloud.oswald.service.template.extract.string.ManipulateStringTemplate;
-import main.java.com.icloud.oswald.service.extract.ManipulateString;
-import main.java.com.icloud.oswald.service.extract.string.ExtractPriceValueFromTSVData;
+import main.java.com.icloud.oswald.service.template.extract.string.ExtractStringTemplate;
+import main.java.com.icloud.oswald.service.extract.ExtractString;
+import main.java.com.icloud.oswald.service.extract.string.ExtractPrice;
 
 public class MainProcessController {
 
@@ -17,15 +17,15 @@ public class MainProcessController {
 
         try {
 
-            Iterator fileRowData = new FileRowDataAggregate("../resources/static/for_calcuration_2018_03.txt").iterator();
+            Iterator fileRowData = new FileRowDataAggregate("main/resources/static/for_calcuration_2018_03.txt").iterator();
 
-            TemplateProcess templateProcess = new ManipulateStringTemplate(new ExtractPriceValueFromTSVData());
+            TemplateProcess templateProcess = new ExtractStringTemplate(new ExtractPrice());
 
-            JudgeTargetContains containsYenWithComma = new JudgeContainsPrice();
+            RowDataValidation validate = new PriceValidation();
 
             int totalPrice = 0;
             while (fileRowData.hasNext()) {
-                if (!containsYenWithComma.hasSpecificWord(fileRowData.next())) {
+                if (!validate.isPrice(fileRowData.next())) {
                     continue;
                 }
 
