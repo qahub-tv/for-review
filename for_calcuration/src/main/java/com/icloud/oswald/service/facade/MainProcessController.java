@@ -1,6 +1,6 @@
 package main.java.com.icloud.oswald.service.facade;
 
-import main.java.com.icloud.oswald.model.iterator.Iterator;
+import java.util.Iterator;
 import main.java.com.icloud.oswald.model.aggregator.rowdata.FileRowDataAggregate;
 
 import java.io.IOException;

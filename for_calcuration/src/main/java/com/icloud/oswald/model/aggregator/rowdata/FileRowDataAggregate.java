@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.List;
 import java.io.IOException;
-import main.java.com.icloud.oswald.model.iterator.Iterator;
+import java.util.Iterator;
 import main.java.com.icloud.oswald.model.aggregator.Aggregate;
 import main.java.com.icloud.oswald.model.iterator.rowdata.FileRowDataIterator;
 

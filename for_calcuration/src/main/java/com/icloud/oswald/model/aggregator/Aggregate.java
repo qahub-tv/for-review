@@ -1,6 +1,6 @@
 package main.java.com.icloud.oswald.model.aggregator;
 
-import main.java.com.icloud.oswald.model.iterator.Iterator;
+import java.util.Iterator;
 
 public interface Aggregate {
 
