@@ -25,12 +25,13 @@ public class MainProcessController {
 
             int totalPrice = 0;
             while (fileRowData.hasNext()) {
-                if (!validate.isPrice(fileRowData.next())) {
+                String rowData = fileRowData.next().toString();
+                if (!validate.isPrice(rowData)) {
                     continue;
                 }
 
                 totalPrice += Integer
-                        .parseInt(templateProcess.execute(fileRowData.current().toString()).toString());
+                        .parseInt(templateProcess.execute(rowData).toString());
             }
 
             System.out.println(totalPrice);
