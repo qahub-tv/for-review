@@ -20,7 +20,7 @@ public class FileRowDataAggregate implements Aggregate {
 
     @Override
     public Iterator iterator() {
-        return new FileRowDataIterator(this);
+        return new FileRowDataIterator<FileRowDataAggregate>(this);
     }
 
     public List<String> getFileRowData() {
