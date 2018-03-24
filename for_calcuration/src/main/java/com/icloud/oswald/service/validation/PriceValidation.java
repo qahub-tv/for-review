@@ -1,6 +1,6 @@
-package main.java.com.icloud.oswald.validation;
+package com.icloud.oswald.service.validation;
 
-import main.java.com.icloud.oswald.validation.RowDataValidation;
+import com.icloud.oswald.service.validation.RowDataValidation;
 
 public class PriceValidation implements RowDataValidation {
 

@@ -1,4 +1,4 @@
-package main.java.com.icloud.oswald.validation;
+package com.icloud.oswald.service.validation;
 
 public interface RowDataValidation {
 

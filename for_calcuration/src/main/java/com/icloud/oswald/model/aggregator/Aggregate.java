@@ -1,8 +1,9 @@
-package main.java.com.icloud.oswald.model.aggregator;
+package com.icloud.oswald.model.aggregator;
 
 import java.util.Iterator;
+import java.io.IOException;
 
 public interface Aggregate {
 
-    public Iterator iterator();
+    public Iterator iterator(String value) throws IOException;
 }

@@ -1,7 +1,7 @@
-package main.java.com.icloud.oswald.model.iterator.rowdata;
+package com.icloud.oswald.model.iterator.rowdata;
 
 import java.util.Iterator;
-import main.java.com.icloud.oswald.model.aggregator.rowdata.FileRowDataAggregate;
+import com.icloud.oswald.model.aggregator.rowdata.FileRowDataAggregate;
 
 public class FileRowDataIterator<T extends FileRowDataAggregate> implements Iterator {
 
@@ -16,12 +16,12 @@ public class FileRowDataIterator<T extends FileRowDataAggregate> implements Iter
 
     @Override
     public boolean hasNext() {
-        return rowDataList.getFileRowData().size() > index;
+        return rowDataList.getList().size() > index;
     }
 
     @Override
     public Object next() {
-        String rowData = rowDataList.getFileRowData().get(index);
+        String rowData = rowDataList.getList().get(index);
         index++;
         return rowData;
     }
