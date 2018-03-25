@@ -8,8 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.icloud.oswald.model.rowdata.Rowdata;
 import com.icloud.oswald.model.rowdata.text.Text;
 import com.icloud.oswald.service.facade.Facade;
-import com.icloud.oswald.service.validation.Validation;
-import com.icloud.oswald.service.validation.price.PriceValidation;
+import com.icloud.oswald.service.validation.PriceValidation;
 
 public class MainProcess implements Facade{
 
@@ -18,14 +17,14 @@ public class MainProcess implements Facade{
     @Override
     public void execute(String value) {
         try {
-            Validation validate = new PriceValidation();
+            PriceValidation validate = new PriceValidation();
             List<String> rows = read(value);
             int totalPrice = 0;
             for (String row : rows) {
-                String data = extract(row);
-                if (!validate.isPrice(data)) {
+                if (!validate.hasPrice(row)) {
                     continue;
                 }
+                String data = extract(row);
                 totalPrice += Integer.parseInt(data);
             }
             System.out.println(totalPrice);
