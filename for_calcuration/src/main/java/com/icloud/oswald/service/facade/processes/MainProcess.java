@@ -1,13 +1,15 @@
 package com.icloud.oswald.service.facade.processes;
 
-import java.util.Iterator;
-import com.icloud.oswald.model.aggregator.rowdata.FileRowDataAggregate;
-
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import org.apache.commons.lang3.StringUtils;
+import com.icloud.oswald.model.rowdata.Rowdata;
+import com.icloud.oswald.model.rowdata.text.Text;
 import com.icloud.oswald.service.facade.Facade;
-import com.icloud.oswald.service.validation.RowDataValidation;
-import com.icloud.oswald.service.validation.PriceValidation;
+import com.icloud.oswald.service.validation.Validation;
+import com.icloud.oswald.service.validation.price.PriceValidation;
 
 public class MainProcess implements Facade{
 
@@ -16,15 +18,15 @@ public class MainProcess implements Facade{
     @Override
     public void execute(String value) {
         try {
-            Iterator fileRowData = new FileRowDataAggregate().iterator(value);
-            RowDataValidation validate = new PriceValidation();
+            Validation validate = new PriceValidation();
+            List<String> rows = read(value);
             int totalPrice = 0;
-            while (fileRowData.hasNext()) {
-                String rowData = fileRowData.next().toString();
-                if (!validate.isPrice(rowData)) {
+            for (String row : rows) {
+                String data = extract(row);
+                if (!validate.isPrice(data)) {
                     continue;
                 }
-                totalPrice += Integer.parseInt(extract(rowData));
+                totalPrice += Integer.parseInt(data);
             }
             System.out.println(totalPrice);
         } catch(IOException e) {
@@ -40,4 +42,11 @@ public class MainProcess implements Facade{
         String value = values[4].replaceAll(REGEXP_NON_DIGIT, StringUtils.EMPTY);
         return value;
     }
+
+    private List<String> read(String value) throws Exception {
+        Path path = Paths.get(value);
+        Rowdata rowdata = new Text();
+        return rowdata.getValues(path);
+    }
+
 }
