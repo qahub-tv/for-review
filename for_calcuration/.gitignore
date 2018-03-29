@@ -1,0 +1,8 @@
+# 読み込むデータファイルは含めない
+src/main/resources/static/
+
+# クラスファイルは含めない
+*.class
+
+# .vscodeを除外
+.vscode/*
